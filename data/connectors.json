@@ -1,18 +1,20 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 5,
   "source": "daemonloom/connectors canonical catalog artifacts",
-  "connectorCount": 55,
-  "operationCount": 836,
-  "modelToolCount": 376,
+  "connectorCount": 59,
+  "operationCount": 843,
+  "modelToolCount": 382,
   "protocolCount": 2,
   "eventCount": 53,
   "channelCount": 5,
   "sessionChannelCount": 0,
+  "discoveryCount": 1,
+  "discoveryMappingCount": 3,
   "protocols": [
     {
       "id": "http_v1",
-      "connectorCount": 55,
-      "operationCount": 835,
+      "connectorCount": 59,
+      "operationCount": 842,
       "sessionChannelCount": 0
     },
     {
@@ -20,6 +22,60 @@
       "connectorCount": 1,
       "operationCount": 1,
       "sessionChannelCount": 0
+    }
+  ],
+  "audiences": [
+    {
+      "id": "content-manager",
+      "connectorCount": 2
+    },
+    {
+      "id": "data-analyst",
+      "connectorCount": 4
+    },
+    {
+      "id": "designer",
+      "connectorCount": 3
+    },
+    {
+      "id": "developer",
+      "connectorCount": 15
+    },
+    {
+      "id": "ecommerce-manager",
+      "connectorCount": 1
+    },
+    {
+      "id": "finance",
+      "connectorCount": 1
+    },
+    {
+      "id": "marketer",
+      "connectorCount": 3
+    },
+    {
+      "id": "product-manager",
+      "connectorCount": 6
+    },
+    {
+      "id": "project-manager",
+      "connectorCount": 5
+    },
+    {
+      "id": "sales-rep",
+      "connectorCount": 2
+    },
+    {
+      "id": "security-engineer",
+      "connectorCount": 3
+    },
+    {
+      "id": "sre",
+      "connectorCount": 10
+    },
+    {
+      "id": "support-agent",
+      "connectorCount": 6
     }
   ],
   "connectors": [
@@ -36,10 +92,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "data-analyst",
+        "project-manager"
       ],
       "directions": [
         "read",
@@ -61,6 +123,10 @@
           "description": "",
           "tags": [
             "database"
+          ],
+          "audiences": [
+            "data-analyst",
+            "project-manager"
           ]
         }
       ],
@@ -327,7 +393,92 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
+    },
+    {
+      "id": "alertmanager",
+      "authority": "io.prometheus.alertmanager.api",
+      "description": "Inspect Alertmanager alerts through its native API contract, directly or through a mediated Connection",
+      "generator": "connectors 0.1.0",
+      "counts": {
+        "operations": 1,
+        "modelTools": 1,
+        "services": 1,
+        "protocols": 1,
+        "events": 0,
+        "channels": 0,
+        "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
+        "auth": 0
+      },
+      "protocolDrivers": [
+        "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "sre",
+        "support-agent"
+      ],
+      "directions": [
+        "read"
+      ],
+      "effects": [
+        "network",
+        "read"
+      ],
+      "interactionShapes": [
+        "unary"
+      ],
+      "services": [
+        {
+          "name": "default",
+          "apiVersion": null,
+          "gid": null,
+          "description": "",
+          "tags": [
+            "observability",
+            "incident-response"
+          ],
+          "audiences": [
+            "sre",
+            "developer",
+            "support-agent"
+          ]
+        }
+      ],
+      "auth": [],
+      "operations": [
+        {
+          "id": "alertmanager-alerts-list",
+          "service": "default",
+          "modelTool": true,
+          "description": "Get the alerts currently visible through this Alertmanager",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/alerts",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [],
+          "outputs": []
+        }
+      ],
+      "events": [],
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "algolia",
@@ -342,11 +493,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -367,7 +521,8 @@
           "description": "",
           "tags": [
             "search"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -689,7 +844,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "anthropic",
@@ -704,11 +860,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read"
       ],
@@ -727,7 +886,8 @@
           "description": "The live model catalogue: list available models and retrieve one by id",
           "tags": [
             "ai"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "admin",
@@ -736,7 +896,8 @@
           "description": "Read-only Admin API: organization, members, workspaces, API keys and invites",
           "tags": [
             "ai"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -1407,7 +1568,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "asana",
@@ -1422,10 +1584,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "product-manager",
+        "project-manager"
       ],
       "directions": [
         "read",
@@ -1447,6 +1615,10 @@
           "description": "",
           "tags": [
             "project-management"
+          ],
+          "audiences": [
+            "project-manager",
+            "product-manager"
           ]
         }
       ],
@@ -1674,7 +1846,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "asterisk",
@@ -1689,12 +1862,15 @@
         "events": 45,
         "channels": 1,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1",
         "sip_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -1716,7 +1892,8 @@
           "description": "",
           "tags": [
             "telephony"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -7348,7 +7525,8 @@
           ],
           "session": null
         }
-      ]
+      ],
+      "discoveries": []
     },
     {
       "id": "babelforce",
@@ -7363,11 +7541,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -7388,7 +7569,8 @@
           "description": "The manager API: agents, calls, sessions, outbound, phonebook, reporting and account administration",
           "tags": [
             "telephony"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "user",
@@ -7397,7 +7579,8 @@
           "description": "The signed-in user and the accounts they can reach",
           "tags": [
             "telephony"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "task-automation",
@@ -7406,7 +7589,8 @@
           "description": "Task automation: submission, scripts, secrets and metrics",
           "tags": [
             "telephony"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "task-schedule",
@@ -7415,7 +7599,8 @@
           "description": "Scheduled tasks: creating, listing and cancelling a schedule",
           "tags": [
             "telephony"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -25704,7 +25889,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "bitbucket",
@@ -25719,10 +25905,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer"
       ],
       "directions": [
         "read",
@@ -25744,6 +25935,9 @@
           "description": "",
           "tags": [
             "source-control"
+          ],
+          "audiences": [
+            "developer"
           ]
         }
       ],
@@ -26432,7 +26626,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "box",
@@ -26447,11 +26642,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -26472,7 +26670,8 @@
           "description": "",
           "tags": [
             "storage"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -26893,7 +27092,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "calendly",
@@ -26908,11 +27108,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read"
       ],
@@ -26931,7 +27134,8 @@
           "description": "",
           "tags": [
             "scheduling"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -27181,7 +27385,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "clickup",
@@ -27196,10 +27401,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "product-manager",
+        "project-manager"
       ],
       "directions": [
         "read",
@@ -27221,6 +27432,10 @@
           "description": "",
           "tags": [
             "project-management"
+          ],
+          "audiences": [
+            "project-manager",
+            "product-manager"
           ]
         }
       ],
@@ -27708,7 +27923,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "cloudflare",
@@ -27723,10 +27939,17 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "security-engineer",
+        "sre"
       ],
       "directions": [
         "read",
@@ -27748,6 +27971,11 @@
           "description": "",
           "tags": [
             "infrastructure"
+          ],
+          "audiences": [
+            "sre",
+            "security-engineer",
+            "developer"
           ]
         }
       ],
@@ -28020,7 +28248,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "confluence",
@@ -28035,11 +28264,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -28060,7 +28292,8 @@
           "description": "",
           "tags": [
             "knowledge-base"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -28577,7 +28810,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "contentful",
@@ -28592,10 +28826,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "content-manager",
+        "developer"
       ],
       "directions": [
         "read",
@@ -28617,6 +28857,10 @@
           "description": "Content Delivery API (CDA): read-only access to this space's published content. Authenticates with the delivery token; the management token cannot reach this surface",
           "tags": [
             "cms"
+          ],
+          "audiences": [
+            "content-manager",
+            "developer"
           ]
         },
         {
@@ -28626,6 +28870,10 @@
           "description": "Content Management API (CMA): create and publish entries. Authenticates with the management token; the delivery token cannot reach this surface",
           "tags": [
             "cms"
+          ],
+          "audiences": [
+            "content-manager",
+            "developer"
           ]
         }
       ],
@@ -28907,7 +29155,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "datadog",
@@ -28922,10 +29171,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "sre"
       ],
       "directions": [
         "read"
@@ -28945,6 +29200,10 @@
           "description": "",
           "tags": [
             "observability"
+          ],
+          "audiences": [
+            "sre",
+            "developer"
           ]
         }
       ],
@@ -29152,7 +29411,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "discord",
@@ -29167,11 +29427,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -29192,7 +29455,8 @@
           "description": "",
           "tags": [
             "messaging"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -29681,7 +29945,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "docusign",
@@ -29696,11 +29961,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -29721,7 +29989,8 @@
           "description": "",
           "tags": [
             "e-signature"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -30070,7 +30339,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "dropbox",
@@ -30085,11 +30355,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -30110,7 +30383,8 @@
           "description": "",
           "tags": [
             "storage"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -30471,7 +30745,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "figma",
@@ -30486,10 +30761,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "designer",
+        "product-manager"
       ],
       "directions": [
         "read"
@@ -30509,6 +30790,10 @@
           "description": "",
           "tags": [
             "design"
+          ],
+          "audiences": [
+            "designer",
+            "product-manager"
           ]
         }
       ],
@@ -30858,7 +31143,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "fly",
@@ -30873,11 +31159,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -30898,7 +31187,8 @@
           "description": "Fly Machines lifecycle and event history",
           "tags": [
             "infrastructure"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -31328,7 +31618,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "freshdesk",
@@ -31343,10 +31634,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 0
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "support-agent"
       ],
       "directions": [
         "read",
@@ -31368,6 +31664,9 @@
           "description": "",
           "tags": [
             "support"
+          ],
+          "audiences": [
+            "support-agent"
           ]
         }
       ],
@@ -32689,7 +32988,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "front",
@@ -32704,10 +33004,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "support-agent"
       ],
       "directions": [
         "read",
@@ -32729,6 +33034,9 @@
           "description": "",
           "tags": [
             "support"
+          ],
+          "audiences": [
+            "support-agent"
           ]
         }
       ],
@@ -33048,7 +33356,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "github",
@@ -33063,10 +33372,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer"
       ],
       "directions": [
         "read",
@@ -33089,6 +33403,9 @@
           "tags": [
             "source-control",
             "issue-tracking"
+          ],
+          "audiences": [
+            "developer"
           ]
         },
         {
@@ -33096,7 +33413,8 @@
           "apiVersion": null,
           "gid": null,
           "description": "GitHub's OAuth2 authorize and token endpoints, served by github.com rather than by the API host.",
-          "tags": []
+          "tags": [],
+          "audiences": []
         }
       ],
       "auth": [
@@ -34257,7 +34575,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "gitlab",
@@ -34272,10 +34591,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer"
       ],
       "directions": [
         "read",
@@ -34298,6 +34622,9 @@
           "tags": [
             "source-control",
             "issue-tracking"
+          ],
+          "audiences": [
+            "developer"
           ]
         },
         {
@@ -34305,7 +34632,8 @@
           "apiVersion": "v4",
           "gid": "com.gitlab.api/login:v4",
           "description": "GitLab's OAuth2 authorize and token endpoints, at the instance origin.",
-          "tags": []
+          "tags": [],
+          "audiences": []
         }
       ],
       "auth": [
@@ -35012,7 +35340,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "google",
@@ -35027,11 +35356,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -35052,7 +35384,8 @@
           "description": "Gmail: read a message, send a message, list a mailbox's labels",
           "tags": [
             "email"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "calendar",
@@ -35061,7 +35394,8 @@
           "description": "Google Calendar: read a calendar and its events, create an event",
           "tags": [
             "scheduling"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "drive",
@@ -35070,7 +35404,8 @@
           "description": "Google Drive: read and rename a file's metadata",
           "tags": [
             "storage"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -35706,7 +36041,305 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
+    },
+    {
+      "id": "grafana",
+      "authority": "com.grafana.api",
+      "description": "Grafana 12+: discover and inspect dashboards, list reachable data sources, and run bounded read queries through their backends",
+      "generator": "connectors 0.1.0",
+      "counts": {
+        "operations": 4,
+        "modelTools": 3,
+        "services": 1,
+        "protocols": 1,
+        "events": 0,
+        "channels": 0,
+        "sessionChannels": 0,
+        "discoveries": 1,
+        "discoveryMappings": 3,
+        "auth": 1
+      },
+      "protocolDrivers": [
+        "http_v1"
+      ],
+      "audiences": [
+        "data-analyst",
+        "developer",
+        "sre"
+      ],
+      "directions": [
+        "read"
+      ],
+      "effects": [
+        "network",
+        "read"
+      ],
+      "interactionShapes": [
+        "unary"
+      ],
+      "services": [
+        {
+          "name": "default",
+          "apiVersion": null,
+          "gid": null,
+          "description": "",
+          "tags": [
+            "observability"
+          ],
+          "audiences": [
+            "sre",
+            "developer",
+            "data-analyst"
+          ]
+        }
+      ],
+      "auth": [
+        {
+          "name": "grafana.service_account_token",
+          "subject": "app",
+          "scheme": "bearer",
+          "description": "Grafana service account token with dashboards:read and data source query access appropriate to this Connection. Entered or resolved at the Connector placement and never returned to the caller"
+        }
+      ],
+      "operations": [
+        {
+          "id": "grafana-dashboards-list",
+          "service": "default",
+          "modelTool": true,
+          "description": "List dashboards in one Grafana organization namespace, with bounded cursor pagination",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/apis/dashboard.grafana.app/v1/namespaces/{namespace}/dashboards",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "continue",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "limit",
+              "type": "number",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "namespace",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "apiVersion",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "items",
+              "type": "array",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "metadata",
+              "type": "object",
+              "required": false,
+              "description": "List metadata, including the continuation token when another page exists."
+            }
+          ]
+        },
+        {
+          "id": "grafana-dashboard-get",
+          "service": "default",
+          "modelTool": true,
+          "description": "Retrieve one dashboard resource by UID from a Grafana organization namespace",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/apis/dashboard.grafana.app/v1/namespaces/{namespace}/dashboards/{uid}",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "namespace",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "uid",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "apiVersion",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "kind",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "metadata",
+              "type": "object",
+              "required": true,
+              "description": "Resource metadata. `name` is the dashboard UID and annotations include folder placement."
+            },
+            {
+              "name": "spec",
+              "type": "object",
+              "required": true,
+              "description": "The dashboard definition, including title, tags, panels, variables and time settings."
+            }
+          ]
+        },
+        {
+          "id": "grafana-datasources-list",
+          "service": "default",
+          "modelTool": true,
+          "description": "List the data sources available to the authenticated Grafana service account. This is also the bounded connection verification read",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/api/datasources",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [],
+          "outputs": []
+        },
+        {
+          "id": "grafana-datasource-query",
+          "service": "default",
+          "modelTool": false,
+          "description": "Execute one or more read queries through Grafana data-source backends over an explicit time range",
+          "direction": "read",
+          "risk": "medium",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "POST",
+          "path": "{base}/api/ds/query",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "from",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "queries",
+              "type": "array",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "to",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "results",
+              "type": "object",
+              "required": true,
+              "description": "One data response per query reference id. Frames, series and error detail are data-source-plugin specific."
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "channels": [],
+      "discoveries": [
+        {
+          "id": "grafana-data-sources",
+          "service": "default",
+          "operation": "grafana-datasources-list",
+          "normalizerDriver": "grafana_datasource_v1",
+          "mappings": [
+            {
+              "observedType": "prometheus",
+              "targetProvider": "prometheus",
+              "routeAdapter": "grafana_datasource_proxy_v1"
+            },
+            {
+              "observedType": "loki",
+              "targetProvider": "loki",
+              "routeAdapter": "grafana_datasource_proxy_v1"
+            },
+            {
+              "observedType": "alertmanager",
+              "targetProvider": "alertmanager",
+              "routeAdapter": "grafana_datasource_proxy_v1"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "hubspot",
@@ -35721,10 +36354,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "marketer",
+        "sales-rep"
       ],
       "directions": [
         "read",
@@ -35746,6 +36385,10 @@
           "description": "",
           "tags": [
             "crm"
+          ],
+          "audiences": [
+            "sales-rep",
+            "marketer"
           ]
         }
       ],
@@ -36116,7 +36759,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "intercom",
@@ -36131,10 +36775,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "support-agent"
       ],
       "directions": [
         "read",
@@ -36156,6 +36805,9 @@
           "description": "",
           "tags": [
             "support"
+          ],
+          "audiences": [
+            "support-agent"
           ]
         }
       ],
@@ -36905,7 +37557,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "jira",
@@ -36920,10 +37573,17 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "product-manager",
+        "project-manager"
       ],
       "directions": [
         "read",
@@ -36946,6 +37606,11 @@
           "tags": [
             "issue-tracking",
             "project-management"
+          ],
+          "audiences": [
+            "developer",
+            "product-manager",
+            "project-manager"
           ]
         }
       ],
@@ -37343,7 +38008,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "klaviyo",
@@ -37358,10 +38024,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "marketer"
       ],
       "directions": [
         "read",
@@ -37383,6 +38054,9 @@
           "description": "",
           "tags": [
             "marketing"
+          ],
+          "audiences": [
+            "marketer"
           ]
         }
       ],
@@ -37699,7 +38373,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "launchdarkly",
@@ -37714,11 +38389,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -37739,7 +38417,8 @@
           "description": "",
           "tags": [
             "developer-tools"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -38086,7 +38765,136 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
+    },
+    {
+      "id": "loki",
+      "authority": "com.grafana.loki.api",
+      "description": "Query Loki logs with bounded native LogQL range semantics, directly or through a mediated Connection",
+      "generator": "connectors 0.1.0",
+      "counts": {
+        "operations": 1,
+        "modelTools": 1,
+        "services": 1,
+        "protocols": 1,
+        "events": 0,
+        "channels": 0,
+        "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
+        "auth": 0
+      },
+      "protocolDrivers": [
+        "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "security-engineer",
+        "sre"
+      ],
+      "directions": [
+        "read"
+      ],
+      "effects": [
+        "network",
+        "read"
+      ],
+      "interactionShapes": [
+        "unary"
+      ],
+      "services": [
+        {
+          "name": "default",
+          "apiVersion": null,
+          "gid": null,
+          "description": "",
+          "tags": [
+            "observability",
+            "infrastructure"
+          ],
+          "audiences": [
+            "sre",
+            "developer",
+            "security-engineer"
+          ]
+        }
+      ],
+      "auth": [],
+      "operations": [
+        {
+          "id": "loki-query-range",
+          "service": "default",
+          "modelTool": true,
+          "description": "Query LogQL streams or metrics over a bounded caller-selected time range",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/loki/api/v1/query_range",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "direction",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "end",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "limit",
+              "type": "number",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "query",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "start",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "data",
+              "type": "object",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "mailchimp",
@@ -38101,10 +38909,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "marketer"
       ],
       "directions": [
         "read",
@@ -38126,6 +38939,9 @@
           "description": "",
           "tags": [
             "marketing"
+          ],
+          "audiences": [
+            "marketer"
           ]
         }
       ],
@@ -38770,7 +39586,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "microsoft_graph",
@@ -38785,11 +39602,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -38810,7 +39630,8 @@
           "description": "Outlook Mail: read and list messages, reply to one, list mail folders",
           "tags": [
             "email"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "calendar",
@@ -38819,7 +39640,8 @@
           "description": "Outlook Calendar and settings: read an event, create one, inspect the default calendar, categories, languages and time zones",
           "tags": [
             "scheduling"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "files",
@@ -38828,7 +39650,8 @@
           "description": "OneDrive: read and rename a file's metadata",
           "tags": [
             "storage"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -39753,7 +40576,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "miro",
@@ -39768,10 +40592,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "designer",
+        "product-manager"
       ],
       "directions": [
         "read",
@@ -39793,6 +40623,10 @@
           "description": "",
           "tags": [
             "design"
+          ],
+          "audiences": [
+            "designer",
+            "product-manager"
           ]
         }
       ],
@@ -40134,7 +40968,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "newrelic",
@@ -40149,10 +40984,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "sre"
       ],
       "directions": [
         "read",
@@ -40174,6 +41015,10 @@
           "description": "",
           "tags": [
             "observability"
+          ],
+          "audiences": [
+            "sre",
+            "developer"
           ]
         }
       ],
@@ -40425,7 +41270,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "notion",
@@ -40440,11 +41286,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -40465,7 +41314,8 @@
           "description": "",
           "tags": [
             "knowledge-base"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -40799,7 +41649,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "okta",
@@ -40814,10 +41665,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "security-engineer"
       ],
       "directions": [
         "read",
@@ -40839,6 +41695,9 @@
           "description": "",
           "tags": [
             "identity"
+          ],
+          "audiences": [
+            "security-engineer"
           ]
         }
       ],
@@ -41092,7 +41951,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "openai",
@@ -41107,11 +41967,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -41132,7 +41995,8 @@
           "description": "",
           "tags": [
             "ai"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -41618,7 +42482,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "openrouter",
@@ -41633,11 +42498,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -41658,7 +42526,8 @@
           "description": "",
           "tags": [
             "ai"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -41868,7 +42737,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "pagerduty",
@@ -41883,10 +42753,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "sre"
       ],
       "directions": [
         "read",
@@ -41908,6 +42783,9 @@
           "description": "",
           "tags": [
             "incident-response"
+          ],
+          "audiences": [
+            "sre"
           ]
         }
       ],
@@ -42258,7 +43136,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "postmark",
@@ -42273,11 +43152,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -42298,7 +43180,8 @@
           "description": "Postmark's own \"Server API\" naming: send mail and read one server's delivery stats and bounces. Authenticates with the Server Token; the Account Token cannot reach this surface at all",
           "tags": [
             "email"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -42641,7 +43524,148 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
+    },
+    {
+      "id": "prometheus",
+      "authority": "io.prometheus.api",
+      "description": "Query Prometheus metrics with bounded native PromQL range semantics, directly or through a mediated Connection",
+      "generator": "connectors 0.1.0",
+      "counts": {
+        "operations": 1,
+        "modelTools": 1,
+        "services": 1,
+        "protocols": 1,
+        "events": 0,
+        "channels": 0,
+        "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
+        "auth": 0
+      },
+      "protocolDrivers": [
+        "http_v1"
+      ],
+      "audiences": [
+        "data-analyst",
+        "developer",
+        "sre"
+      ],
+      "directions": [
+        "read"
+      ],
+      "effects": [
+        "network",
+        "read"
+      ],
+      "interactionShapes": [
+        "unary"
+      ],
+      "services": [
+        {
+          "name": "default",
+          "apiVersion": null,
+          "gid": null,
+          "description": "",
+          "tags": [
+            "observability",
+            "infrastructure"
+          ],
+          "audiences": [
+            "sre",
+            "developer",
+            "data-analyst"
+          ]
+        }
+      ],
+      "auth": [],
+      "operations": [
+        {
+          "id": "prometheus-query-range",
+          "service": "default",
+          "modelTool": true,
+          "description": "Evaluate a PromQL expression over a bounded caller-selected time range",
+          "direction": "read",
+          "risk": "low",
+          "effects": [
+            "read",
+            "network"
+          ],
+          "semanticEffects": [],
+          "protocolDriver": "http_v1",
+          "method": "GET",
+          "path": "{base}/api/v1/query_range",
+          "interactionShape": "unary",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "end",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "query",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "start",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "step",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "data",
+              "type": "object",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "error",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "errorType",
+              "type": "string",
+              "required": false,
+              "description": ""
+            },
+            {
+              "name": "status",
+              "type": "string",
+              "required": true,
+              "description": ""
+            },
+            {
+              "name": "warnings",
+              "type": "array",
+              "required": false,
+              "description": ""
+            }
+          ]
+        }
+      ],
+      "events": [],
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "resend",
@@ -42656,11 +43680,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -42681,7 +43708,8 @@
           "description": "",
           "tags": [
             "email"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -43018,7 +44046,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "salesforce",
@@ -43033,10 +44062,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "sales-rep"
       ],
       "directions": [
         "read",
@@ -43058,6 +44092,9 @@
           "description": "",
           "tags": [
             "crm"
+          ],
+          "audiences": [
+            "sales-rep"
           ]
         }
       ],
@@ -43409,7 +44446,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "sendgrid",
@@ -43424,11 +44462,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -43449,7 +44490,8 @@
           "description": "",
           "tags": [
             "email"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -43660,7 +44702,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "sentry",
@@ -43675,10 +44718,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "sre"
       ],
       "directions": [
         "read",
@@ -43700,6 +44749,10 @@
           "description": "",
           "tags": [
             "observability"
+          ],
+          "audiences": [
+            "developer",
+            "sre"
           ]
         }
       ],
@@ -44356,7 +45409,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "shopify",
@@ -44371,10 +45425,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "ecommerce-manager"
       ],
       "directions": [
         "read",
@@ -44396,6 +45455,9 @@
           "description": "",
           "tags": [
             "ecommerce"
+          ],
+          "audiences": [
+            "ecommerce-manager"
           ]
         }
       ],
@@ -44611,7 +45673,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "slack",
@@ -44626,11 +45689,14 @@
         "events": 2,
         "channels": 2,
         "sessionChannels": 0,
-        "auth": 2
+        "discoveries": 0,
+        "discoveryMappings": 0,
+        "auth": 3
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "write"
       ],
@@ -44649,7 +45715,8 @@
           "description": "",
           "tags": [
             "messaging"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -44657,13 +45724,19 @@
           "name": "slack.bot_token",
           "subject": "app",
           "scheme": "bearer",
-          "description": "Slack bot user OAuth token (xoxb-…) with chat:write, channels:history, users:read and reactions:write"
+          "description": "Slack bot user OAuth token (xoxb-…) with app_mentions:read, chat:write, channels:history, users:read and reactions:write"
         },
         {
           "name": "slack.signing_secret",
           "subject": "app",
           "scheme": "signing",
           "description": "Slack app signing secret, used to verify inbound Events API requests. Never sent to Slack"
+        },
+        {
+          "name": "slack.app_token",
+          "subject": "app",
+          "scheme": "bearer",
+          "description": "Slack app-level token (xapp-…) with connections:write, used only to open Socket Mode"
         }
       ],
       "operations": [
@@ -44981,7 +46054,8 @@
           ],
           "session": null
         }
-      ]
+      ],
+      "discoveries": []
     },
     {
       "id": "statuspage",
@@ -44996,10 +46070,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "sre",
+        "support-agent"
       ],
       "directions": [
         "read",
@@ -45021,6 +46101,10 @@
           "description": "",
           "tags": [
             "incident-response"
+          ],
+          "audiences": [
+            "sre",
+            "support-agent"
           ]
         }
       ],
@@ -45412,7 +46496,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "stripe",
@@ -45427,10 +46512,16 @@
         "events": 4,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "developer",
+        "finance"
       ],
       "directions": [
         "read",
@@ -45452,6 +46543,10 @@
           "description": "",
           "tags": [
             "payments"
+          ],
+          "audiences": [
+            "finance",
+            "developer"
           ]
         }
       ],
@@ -46322,7 +47417,8 @@
           "default": false
         }
       ],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "supabase",
@@ -46337,10 +47433,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "data-analyst",
+        "developer"
       ],
       "directions": [
         "read"
@@ -46361,6 +47463,10 @@
           "tags": [
             "database",
             "infrastructure"
+          ],
+          "audiences": [
+            "developer",
+            "data-analyst"
           ]
         }
       ],
@@ -46561,7 +47667,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "trello",
@@ -46576,10 +47683,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "product-manager",
+        "project-manager"
       ],
       "directions": [
         "read",
@@ -46601,6 +47714,10 @@
           "description": "",
           "tags": [
             "project-management"
+          ],
+          "audiences": [
+            "project-manager",
+            "product-manager"
           ]
         }
       ],
@@ -47115,7 +48232,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "twilio",
@@ -47130,11 +48248,14 @@
         "events": 2,
         "channels": 2,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read"
       ],
@@ -47154,7 +48275,8 @@
           "tags": [
             "telephony",
             "messaging"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -48237,7 +49359,8 @@
           ],
           "session": null
         }
-      ]
+      ],
+      "discoveries": []
     },
     {
       "id": "typeform",
@@ -48252,11 +49375,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -48277,7 +49403,8 @@
           "description": "",
           "tags": [
             "forms"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -48640,7 +49767,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "vercel",
@@ -48655,11 +49783,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -48681,7 +49812,8 @@
           "tags": [
             "infrastructure",
             "developer-tools"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -48936,7 +50068,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "webflow",
@@ -48951,10 +50084,16 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "content-manager",
+        "designer"
       ],
       "directions": [
         "read",
@@ -48976,6 +50115,10 @@
           "description": "",
           "tags": [
             "cms"
+          ],
+          "audiences": [
+            "content-manager",
+            "designer"
           ]
         }
       ],
@@ -49300,7 +50443,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "zendesk",
@@ -49315,10 +50459,15 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 2
       },
       "protocolDrivers": [
         "http_v1"
+      ],
+      "audiences": [
+        "support-agent"
       ],
       "directions": [
         "read",
@@ -49340,6 +50489,9 @@
           "description": "",
           "tags": [
             "support"
+          ],
+          "audiences": [
+            "support-agent"
           ]
         },
         {
@@ -49349,7 +50501,8 @@
           "description": "Zendesk Help Center knowledge base: read categories, sections, articles and translations, and publish articles",
           "tags": [
             "knowledge-base"
-          ]
+          ],
+          "audiences": []
         },
         {
           "name": "messaging",
@@ -49358,7 +50511,8 @@
           "description": "Zendesk Messaging conversations, messages, participants and users",
           "tags": [
             "messaging"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -50908,7 +52062,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     },
     {
       "id": "zoom",
@@ -50923,11 +52078,14 @@
         "events": 0,
         "channels": 0,
         "sessionChannels": 0,
+        "discoveries": 0,
+        "discoveryMappings": 0,
         "auth": 1
       },
       "protocolDrivers": [
         "http_v1"
       ],
+      "audiences": [],
       "directions": [
         "read",
         "write"
@@ -50949,7 +52107,8 @@
           "tags": [
             "video-conferencing",
             "scheduling"
-          ]
+          ],
+          "audiences": []
         }
       ],
       "auth": [
@@ -51166,7 +52325,8 @@
         }
       ],
       "events": [],
-      "channels": []
+      "channels": [],
+      "discoveries": []
     }
   ]
 }
