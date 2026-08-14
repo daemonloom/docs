@@ -2,9 +2,9 @@
   "schemaVersion": 3,
   "source": "daemonloom/connectors canonical catalog artifacts",
   "connectorCount": 55,
-  "operationCount": 835,
-  "modelToolCount": 375,
-  "protocolCount": 1,
+  "operationCount": 836,
+  "modelToolCount": 376,
+  "protocolCount": 2,
   "eventCount": 53,
   "channelCount": 5,
   "sessionChannelCount": 0,
@@ -13,6 +13,12 @@
       "id": "http_v1",
       "connectorCount": 55,
       "operationCount": 835,
+      "sessionChannelCount": 0
+    },
+    {
+      "id": "sip_v1",
+      "connectorCount": 1,
+      "operationCount": 1,
       "sessionChannelCount": 0
     }
   ],
@@ -1676,17 +1682,18 @@
       "description": "Control an Asterisk deployment through the complete ARI REST surface: applications, system configuration, bridges, channels, endpoints, mailboxes, playback, recordings, sounds, and outbound user events",
       "generator": "connectors 0.1.0",
       "counts": {
-        "operations": 96,
-        "modelTools": 15,
+        "operations": 97,
+        "modelTools": 16,
         "services": 1,
-        "protocols": 1,
+        "protocols": 2,
         "events": 45,
         "channels": 1,
         "sessionChannels": 0,
         "auth": 1
       },
       "protocolDrivers": [
-        "http_v1"
+        "http_v1",
+        "sip_v1"
       ],
       "directions": [
         "read",
@@ -1698,6 +1705,7 @@
         "write"
       ],
       "interactionShapes": [
+        "session_establishment",
         "unary"
       ],
       "services": [
@@ -1720,6 +1728,66 @@
         }
       ],
       "operations": [
+        {
+          "id": "sip-dial",
+          "service": "default",
+          "modelTool": true,
+          "description": "Start one native SIP voice session to a destination configured on this Connection. `target` is an opaque Connection-owned alias, never a SIP URI, phone number, host, or port. Establishing a call is externally visible and may ring or answer a real endpoint",
+          "direction": "write",
+          "risk": "high",
+          "effects": [
+            "write",
+            "network"
+          ],
+          "semanticEffects": [
+            "send_external",
+            "human_visible"
+          ],
+          "protocolDriver": "sip_v1",
+          "method": null,
+          "path": null,
+          "interactionShape": "session_establishment",
+          "placementRequirement": "connectors_deployment",
+          "implementationForm": "built_in",
+          "idempotency": "non_idempotent",
+          "requiredCapabilities": [
+            "private_network"
+          ],
+          "inputs": [
+            {
+              "name": "target",
+              "type": "string",
+              "required": true,
+              "description": ""
+            }
+          ],
+          "outputs": [
+            {
+              "name": "call",
+              "type": "string",
+              "required": true,
+              "description": "Opaque call reference"
+            },
+            {
+              "name": "channel",
+              "type": "string",
+              "required": true,
+              "description": "Opaque application-channel reference"
+            },
+            {
+              "name": "session",
+              "type": "string",
+              "required": true,
+              "description": "Opaque voice-session reference"
+            },
+            {
+              "name": "state",
+              "type": "string",
+              "required": true,
+              "description": "The SIP dialog and voice application binding are established"
+            }
+          ]
+        },
         {
           "id": "asterisk-ari-applications-list",
           "service": "default",
