@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "release": "release-1.0",
+  "base_url": "/docs/",
+  "artifact_sha256": "ce6886423105090787e91c44cdfb11324f317e95362970c17b0ab0a709fa3807",
+  "catalog": {
+    "connectors": 55,
+    "operations": 375,
+    "events": 53
+  }
+}

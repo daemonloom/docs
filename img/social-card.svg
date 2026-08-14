@@ -1,0 +1,15 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F3F1E7"/>
+  <path d="M0 520H1200M0 105H1200" stroke="#10231F" stroke-opacity=".15"/>
+  <path d="M900 0V630M1020 0V630M1140 0V630M780 0V630" stroke="#10231F" stroke-opacity=".08"/>
+  <circle cx="954" cy="315" r="205" stroke="#087F79" stroke-opacity=".4" stroke-dasharray="8 8"/>
+  <circle cx="954" cy="315" r="126" fill="#10231F"/>
+  <circle cx="954" cy="315" r="20" fill="#D7FF64"/>
+  <circle cx="812" cy="172" r="10" fill="#41E7D4"/>
+  <circle cx="1090" cy="456" r="10" fill="#FF8C5A"/>
+  <text x="78" y="90" fill="#087F79" font-family="monospace" font-size="22" letter-spacing="4">DAEMONLOOM</text>
+  <text x="76" y="270" fill="#10231F" font-family="Georgia, serif" font-size="78">Autonomy, with a</text>
+  <text x="76" y="355" fill="#087F79" font-family="Georgia, serif" font-size="78" font-style="italic">chain of custody.</text>
+  <text x="80" y="440" fill="#43534F" font-family="Arial, sans-serif" font-size="25">Infrastructure for accountable autonomous work.</text>
+</svg>
+
