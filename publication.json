@@ -1,11 +1,15 @@
 {
   "schema_version": 1,
-  "release": "release-1.0",
+  "release": "release-2.0",
   "base_url": "/docs/",
-  "artifact_sha256": "ce6886423105090787e91c44cdfb11324f317e95362970c17b0ab0a709fa3807",
+  "artifact_sha256": "62f6c88b746ae4bfbf8e4a4dcb617c5105c3a0e28d97c87ac090146bde27e678",
   "catalog": {
     "connectors": 55,
-    "operations": 375,
-    "events": 53
+    "operations": 835,
+    "model_tools": 375,
+    "protocol_drivers": 1,
+    "events": 53,
+    "channels": 5,
+    "session_channels": 0
   }
 }
