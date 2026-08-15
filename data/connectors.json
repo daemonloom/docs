@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 7,
+  "schemaVersion": 8,
   "source": "daemonloom/connectors canonical catalog artifacts",
   "connectorCount": 59,
   "sourceInventoryOperationCount": 170,
@@ -139,7 +139,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Airtable access token sent as a bearer — a personal access token or an OAuth-issued one"
+          "description": "Airtable access token sent as a bearer — a personal access token or an OAuth-issued one",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -544,7 +545,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "An Algolia API key with the ACLs this connector needs: `search` and `browse` for the reads, `addObject` and `deleteObject` for the writes. Scope it to the indices this connection should reach rather than using the Admin key"
+          "description": "An Algolia API key with the ACLs this connector needs: `search` and `browse` for the reads, `addObject` and `deleteObject` for the writes. Scope it to the indices this connection should reach rather than using the Admin key",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -927,14 +929,16 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Anthropic API key, sent as x-api-key"
+          "description": "Anthropic API key, sent as x-api-key",
+          "oauth2": null
         },
         {
           "name": "anthropic.admin_key",
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Anthropic Admin API key, sent as x-api-key and used only by Admin API operations"
+          "description": "Anthropic Admin API key, sent as x-api-key and used only by Admin API operations",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -1664,7 +1668,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Asana access token sent as a bearer — a personal access token or an OAuth-issued one"
+          "description": "Asana access token sent as a bearer — a personal access token or an OAuth-issued one",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -1946,7 +1951,8 @@
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "Asterisk ARI Basic authentication password, paired with the deployment's ARI username"
+          "description": "Asterisk ARI Basic authentication password, paired with the deployment's ARI username",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -7799,7 +7805,18 @@
           "subject": "user",
           "scheme": "bearer",
           "entry": null,
-          "description": "babelforce access token. Either supplied through the environment, or obtained by the host running one of the grants below"
+          "description": "babelforce access token. Either supplied through the environment, or obtained by the host running one of the grants below",
+          "oauth2": {
+            "grants": [
+              "password",
+              "refresh_token"
+            ],
+            "requestedScopes": [
+              "*"
+            ],
+            "scopeSeparator": "space",
+            "grantedScopeLocation": "standard token response"
+          }
         }
       ],
       "operations": [
@@ -26528,7 +26545,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Bitbucket Cloud Access Token, sent as a bearer token. A Workspace Access Token is valid for exactly one workspace, which is the same boundary this connector's pinned `workspace` describes; scope it to repository:read plus pullrequest:write for the writes below"
+          "description": "Bitbucket Cloud Access Token, sent as a bearer token. A Workspace Access Token is valid for exactly one workspace, which is the same boundary this connector's pinned `workspace` describes; scope it to repository:read plus pullrequest:write for the writes below",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -27271,7 +27289,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Box access token sent as a bearer — an OAuth2 access token or a Developer Console token"
+          "description": "Box access token sent as a bearer — an OAuth2 access token or a Developer Console token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -27744,7 +27763,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Calendly access token sent as a bearer — a personal access token or an OAuth-issued one"
+          "description": "Calendly access token sent as a bearer — a personal access token or an OAuth-issued one",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -28053,7 +28073,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "ClickUp personal API token, sent as the raw value of the Authorization header with no scheme word. Grant access to the workspaces, spaces and lists the operations below need to read or write"
+          "description": "ClickUp personal API token, sent as the raw value of the Authorization header with no scheme word. Grant access to the workspaces, spaces and lists the operations below need to read or write",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -28602,7 +28623,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Cloudflare API Token, sent as a bearer token, scoped to Zone:Read, DNS:Edit and Cache Purge on the zones this connector should reach"
+          "description": "Cloudflare API Token, sent as a bearer token, scoped to Zone:Read, DNS:Edit and Cache Purge on the zones this connector should reach",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -28927,7 +28949,8 @@
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "Atlassian API token; the user half is the account email that minted it. This is the same token a Jira connection uses, but it is stored at a separate address and must be supplied again"
+          "description": "Atlassian API token; the user half is the account email that minted it. This is the same token a Jira connection uses, but it is stored at a separate address and must be supplied again",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -29517,14 +29540,16 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Contentful Content Delivery API (CDA) access token, sent as a bearer. Read-only: published content in one space only, and only the Delivery API accepts it"
+          "description": "Contentful Content Delivery API (CDA) access token, sent as a bearer. Read-only: published content in one space only, and only the Delivery API accepts it",
+          "oauth2": null
         },
         {
           "name": "contentful.management_token",
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Contentful Content Management API (CMA) access token, sent as a bearer. Read and write in one space; the Delivery API rejects it. Required only for contentful-entry-create and contentful-entry-publish — every read above uses the Delivery token instead"
+          "description": "Contentful Content Management API (CMA) access token, sent as a bearer. Read and write in one space; the Delivery API rejects it. Required only for contentful-entry-create and contentful-entry-publish — every read above uses the Delivery token instead",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -29856,14 +29881,16 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Datadog API key. Identifies the organization; required on every request together with the Application Key — neither key alone authenticates a call"
+          "description": "Datadog API key. Identifies the organization; required on every request together with the Application Key — neither key alone authenticates a call",
+          "oauth2": null
         },
         {
           "name": "datadog.application_key",
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Datadog Application Key, scoped to the user who created it. Required on every request together with the API Key — neither key alone authenticates a call"
+          "description": "Datadog Application Key, scoped to the user who created it. Required on every request together with the API Key — neither key alone authenticates a call",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -30116,7 +30143,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Discord bot token, sent as `Authorization: Bot <token>`. The `Bot ` scheme word is supplied by the connector; the token is the value alone. `Bearer ` is a valid Discord scheme word for a different credential — an OAuth2 user token — so sending this token with that prefix yields a 401 indistinguishable from a revoked token"
+          "description": "Discord bot token, sent as `Authorization: Bot <token>`. The `Bot ` scheme word is supplied by the connector; the token is the value alone. `Bearer ` is a valid Discord scheme word for a different credential — an OAuth2 user token — so sending this token with that prefix yields a 401 indistinguishable from a revoked token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -30659,7 +30687,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "DocuSign OAuth2 access token sent as a bearer; already minted, supplied through the environment"
+          "description": "DocuSign OAuth2 access token sent as a bearer; already minted, supplied through the environment",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -31062,7 +31091,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Dropbox access token sent as a bearer — a scoped app access token or an OAuth2 access token"
+          "description": "Dropbox access token sent as a bearer — a scoped app access token or an OAuth2 access token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -31481,7 +31511,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Figma personal access token, sent as the whole value of X-Figma-Token. Grants read access to whatever files, projects and comments the token's account can see"
+          "description": "Figma personal access token, sent as the whole value of X-Figma-Token. Grants read access to whatever files, projects and comments the token's account can see",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -31884,7 +31915,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Fly access token, preferably scoped to the app or organization this connection manages"
+          "description": "Fly access token, preferably scoped to the app or organization this connection manages",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -33756,7 +33788,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Front API token sent as a bearer"
+          "description": "Front API token sent as a bearer",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -34142,14 +34175,27 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "GitHub token sent as a bearer — a GitHub App installation token, a fine-grained PAT, or a classic PAT"
+          "description": "GitHub token sent as a bearer — a GitHub App installation token, a fine-grained PAT, or a classic PAT",
+          "oauth2": null
         },
         {
           "name": "github.oauth_token",
           "subject": "user",
           "scheme": "bearer",
           "entry": null,
-          "description": "GitHub OAuth2 access token obtained on behalf of a signed-in user. Bounded by that user's own permissions, never by the application's"
+          "description": "GitHub OAuth2 access token obtained on behalf of a signed-in user. Bounded by that user's own permissions, never by the application's",
+          "oauth2": {
+            "endpoint": "login",
+            "grants": [
+              "authorization_code"
+            ],
+            "requestedScopes": [
+              "repo",
+              "read:org"
+            ],
+            "scopeSeparator": "space",
+            "grantedScopeLocation": "standard token response"
+          }
         }
       ],
       "operations": [
@@ -35315,7 +35361,7 @@
     {
       "id": "gitlab",
       "authority": "com.gitlab.api",
-      "description": "GitLab: discover reachable groups and projects; read, filter and create project issues, list merge requests, read a pipeline, and list a project's branches — every project addressed by its numeric id only",
+      "description": "GitLab for people and automation identities: discover reachable groups and projects; read, filter and create project issues, list merge requests, read a pipeline, and list a project's branches — every project addressed by its numeric id only",
       "generator": "connectors 0.1.0",
       "counts": {
         "operations": 9,
@@ -35328,7 +35374,7 @@
         "sessionChannels": 0,
         "discoveries": 0,
         "discoveryMappings": 0,
-        "auth": 2
+        "auth": 5
       },
       "protocolDrivers": [
         "http_v1"
@@ -35377,15 +35423,52 @@
           "name": "gitlab.token",
           "subject": "user",
           "scheme": "bearer",
-          "entry": null,
-          "description": "GitLab personal access token sent as a bearer. A token scoped to read_api is enough for every read below; the api scope is required for gitlab-issue-create"
+          "entry": "connect_session",
+          "description": "Personal access token entered once through a protected Connect Session. Acts as the person who created it; choose read_api for reads or api for writes",
+          "oauth2": null
+        },
+        {
+          "name": "gitlab.service_account_token",
+          "subject": "app",
+          "scheme": "bearer",
+          "entry": "connect_session",
+          "description": "Personal access token belonging to a dedicated GitLab service account. Acts as that non-human automation identity and is limited by its memberships, role, scope, and expiry",
+          "oauth2": null
+        },
+        {
+          "name": "gitlab.group_access_token",
+          "subject": "app",
+          "scheme": "bearer",
+          "entry": "connect_session",
+          "description": "Group access token entered once through a protected Connect Session. Acts as GitLab's group bot user and reaches only its group and projects, bounded by role, scope, and expiry",
+          "oauth2": null
+        },
+        {
+          "name": "gitlab.project_access_token",
+          "subject": "app",
+          "scheme": "bearer",
+          "entry": "connect_session",
+          "description": "Project access token entered once through a protected Connect Session. Acts as GitLab's project bot user and reaches only its project, bounded by role, scope, and expiry",
+          "oauth2": null
         },
         {
           "name": "gitlab.oauth_token",
           "subject": "user",
           "scheme": "bearer",
           "entry": null,
-          "description": "GitLab OAuth2 access token obtained on behalf of a signed-in user. Bounded by that user's own permissions, never by the application's"
+          "description": "GitLab OAuth2 access token obtained on behalf of a signed-in user. Bounded by that user's own permissions, never by the application's",
+          "oauth2": {
+            "endpoint": "login",
+            "grants": [
+              "authorization_code",
+              "refresh_token"
+            ],
+            "requestedScopes": [
+              "api"
+            ],
+            "scopeSeparator": "space",
+            "grantedScopeLocation": "standard token response"
+          }
         }
       ],
       "operations": [
@@ -35411,7 +35494,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [],
           "outputs": [
             {
@@ -35419,6 +35593,12 @@
               "type": "string",
               "required": false,
               "description": ""
+            },
+            {
+              "name": "bot",
+              "type": "boolean",
+              "required": true,
+              "description": "Whether GitLab classifies the effective actor as a bot. A protected Connect Session uses this to refuse a human token selected as automation, or a bot token selected as a person"
             },
             {
               "name": "id",
@@ -35474,7 +35654,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "min_access_level",
@@ -35525,7 +35796,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "membership",
@@ -35588,7 +35950,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "page",
@@ -35639,7 +36092,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "issue_iid",
@@ -35781,7 +36325,83 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "description",
@@ -35893,7 +36513,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "page",
@@ -35944,7 +36655,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "pipeline_id",
@@ -36062,7 +36864,98 @@
           "requiredCapabilities": [
             "public_network"
           ],
-          "authRequirements": [],
+          "authRequirements": [
+            {
+              "credentials": [
+                "gitlab.oauth_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.oauth_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.service_account_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.service_account_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.group_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.group_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "gitlab.project_access_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "gitlab.project_access_token",
+                  "alternatives": [
+                    [
+                      "api"
+                    ],
+                    [
+                      "read_api"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
           "inputs": [
             {
               "name": "page",
@@ -36163,7 +37056,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Google OAuth2 access token sent as a bearer; short-lived, and refreshed by the host rather than by generated Flux"
+          "description": "Google OAuth2 access token sent as a bearer; short-lived, and refreshed by the host rather than by generated Flux",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -36861,7 +37755,8 @@
           "subject": "app",
           "scheme": "bearer",
           "entry": "connect_session",
-          "description": "Grafana service account token with dashboards:read and data source query access appropriate to this Connection. Entered or resolved at the Connector placement and never returned to the caller"
+          "description": "Grafana service account token with dashboards:read and data source query access appropriate to this Connection. Entered or resolved at the Connector placement and never returned to the caller",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -37165,7 +38060,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "HubSpot private-app access token (pat-…) with crm.objects.contacts.read/write, crm.objects.companies.read and crm.objects.deals.read"
+          "description": "HubSpot private-app access token (pat-…) with crm.objects.contacts.read/write, crm.objects.companies.read and crm.objects.deals.read",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -37592,7 +38488,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Intercom access token sent as a bearer — an OAuth app token or a workspace access token"
+          "description": "Intercom access token sent as a bearer — an OAuth app token or a workspace access token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -38403,7 +39300,8 @@
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "Atlassian API token; the user half is the account email that minted it"
+          "description": "Atlassian API token; the user half is the account email that minted it",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -38858,7 +39756,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Klaviyo private API key for one account. Travels as the whole Authorization header behind Klaviyo's own scheme word. Keys are scoped per key: one minted without the scopes the shipped operations need will authenticate, pass verification, and fail on exactly the call that needs the missing scope"
+          "description": "Klaviyo private API key for one account. Travels as the whole Authorization header behind Klaviyo's own scheme word. Keys are scoped per key: one minted without the scopes the shipped operations need will authenticate, pass verification, and fail on exactly the call that needs the missing scope",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -39228,7 +40127,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "LaunchDarkly API access token, sent as the entire value of the Authorization header with no scheme word in front of it — LaunchDarkly rejects a `Bearer `-prefixed value"
+          "description": "LaunchDarkly API access token, sent as the entire value of the Authorization header with no scheme word in front of it — LaunchDarkly rejects a `Bearer `-prefixed value",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -39763,7 +40663,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Mailchimp Marketing API key, granting whatever the account that issued it can do. Travels as `Authorization: Bearer <key>`, the alternative Mailchimp documents beside its Basic form. The key's trailing `-us14`-style suffix names the account's datacentre; that value is asked for separately as configuration and is never read back out of this credential"
+          "description": "Mailchimp Marketing API key, granting whatever the account that issued it can do. Travels as `Authorization: Bearer <key>`, the alternative Mailchimp documents beside its Basic form. The key's trailing `-us14`-style suffix names the account's datacentre; that value is asked for separately as configuration and is never read back out of this credential",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -40482,7 +41383,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Microsoft Entra ID OAuth2 access token sent as a bearer; short-lived, minted outside flux (delegated sign-in or application client-credentials), and refreshed by the host rather than by generated Flux"
+          "description": "Microsoft Entra ID OAuth2 access token sent as a bearer; short-lived, minted outside flux (delegated sign-in or application client-credentials), and refreshed by the host rather than by generated Flux",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -41473,7 +42375,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Miro access token (a personal access token or an OAuth2 access token), sent as a bearer token, scoped to read and write boards, board items and sticky notes"
+          "description": "Miro access token (a personal access token or an OAuth2 access token), sent as a bearer token, scoped to read and write boards, board items and sticky notes",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -41874,7 +42777,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "New Relic User API key, authorizing REST v2 calls as the New Relic user it was created by. Travels as the `X-Api-Key` header on every request. A key is issued in one region and is not valid against the other region's host — a 401 from this connector is as likely to be a wrong `host` as a wrong key"
+          "description": "New Relic User API key, authorizing REST v2 calls as the New Relic user it was created by. Travels as the `X-Api-Key` header on every request. A key is issued in one region and is not valid against the other region's host — a 401 from this connector is as likely to be a wrong `host` as a wrong key",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -42179,7 +43083,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Notion integration token sent as a bearer — an internal integration token or an OAuth-issued access token"
+          "description": "Notion integration token sent as a bearer — an internal integration token or an OAuth-issued access token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -42570,7 +43475,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Okta API token, sent as `Authorization: SSWS <token>`. The `SSWS ` scheme word is supplied by the connector; the token is the value alone"
+          "description": "Okta API token, sent as `Authorization: SSWS <token>`. The `SSWS ` scheme word is supplied by the connector; the token is the value alone",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -42876,7 +43782,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "OpenAI API key, sent as a bearer token"
+          "description": "OpenAI API key, sent as a bearer token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -43418,7 +44325,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "OpenRouter API key, sent as a bearer token"
+          "description": "OpenRouter API key, sent as a bearer token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -43684,7 +44592,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "PagerDuty REST API access key, sent as the Authorization header after the literal `Token token=`. A read-only key satisfies the four read operations; the two incident writes need a full-access key"
+          "description": "PagerDuty REST API access key, sent as the Authorization header after the literal `Token token=`. A read-only key satisfies the four read operations; the two incident writes need a full-access key",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -44088,7 +44997,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Postmark Server API token, scoped to one server. Authenticates sending and that server's own message history; cannot list or manage servers"
+          "description": "Postmark Server API token, scoped to one server. Authenticates sending and that server's own message history; cannot list or manage servers",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -44626,7 +45536,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Resend API key, sent as a bearer token on every request. Minted in the Resend dashboard and scoped there to full access or sending only; this repository holds the reference, never the value"
+          "description": "Resend API key, sent as a bearer token on every request. Minted in the Resend dashboard and scoped there to full access or sending only; this repository holds the reference, never the value",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -45019,7 +45930,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Salesforce OAuth2 access token sent as a bearer; already minted, supplied through the environment"
+          "description": "Salesforce OAuth2 access token sent as a bearer; already minted, supplied through the environment",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -45423,7 +46335,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "SendGrid API key sent as a bearer"
+          "description": "SendGrid API key sent as a bearer",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -45692,7 +46605,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Sentry auth token sent as a bearer — an organization, user or internal-integration token"
+          "description": "Sentry auth token sent as a bearer — an organization, user or internal-integration token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -46404,7 +47318,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Shopify Admin API access token, sent as the whole value of X-Shopify-Access-Token, with read_orders, read_products, write_products, read_customers and read_inventory scopes"
+          "description": "Shopify Admin API access token, sent as the whole value of X-Shopify-Access-Token, with read_orders, read_products, write_products, read_customers and read_inventory scopes",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -46622,13 +47537,13 @@
     {
       "id": "slack",
       "authority": "com.slack.api",
-      "description": "Slack messaging, inbound events, and a curated read-only Enterprise Admin surface",
+      "description": "Slack messaging as the installed Zwirn bot or as a consenting user, inbound events, and a curated read-only Enterprise Admin surface",
       "generator": "connectors 0.1.0",
       "counts": {
         "operations": 8,
         "sourceOperations": 170,
         "modelTools": 8,
-        "services": 2,
+        "services": 3,
         "protocols": 1,
         "events": 2,
         "channels": 2,
@@ -47886,6 +48801,14 @@
             "sre",
             "security-engineer"
           ]
+        },
+        {
+          "name": "login",
+          "apiVersion": "v1",
+          "gid": "com.slack.api/login:v1",
+          "description": "Slack OAuth v2 authorization and token endpoints. The host uses this service only while creating or refreshing a Connection",
+          "tags": [],
+          "audiences": []
         }
       ],
       "auth": [
@@ -47893,36 +48816,70 @@
           "name": "slack.bot_token",
           "subject": "app",
           "scheme": "bearer",
-          "entry": "connect_session",
-          "description": "Slack bot user OAuth token for app-authority Web API operations and event subscriptions"
+          "entry": null,
+          "description": "Workspace bot token obtained when a person installs the Zwirn Slack app. Calls are attributed to the app's bot, not to the installer",
+          "oauth2": {
+            "endpoint": "login",
+            "grants": [
+              "authorization_code",
+              "refresh_token"
+            ],
+            "requestedScopes": [
+              "app_mentions:read",
+              "channels:history",
+              "chat:write",
+              "reactions:write",
+              "users:read"
+            ],
+            "scopeSeparator": "comma",
+            "grantedScopeLocation": "standard token response"
+          }
         },
         {
           "name": "slack.user_token",
           "subject": "user",
           "scheme": "bearer",
-          "entry": "connect_session",
-          "description": "Slack user OAuth token for explicitly delegated user-authority operations; no such operation is selected initially"
+          "entry": null,
+          "description": "Delegated OAuth token for the consenting Slack member. Zwirn may invoke an admitted operation through this principal-owned Connection, and Slack attributes it to that user",
+          "oauth2": {
+            "endpoint": "login",
+            "grants": [
+              "authorization_code",
+              "refresh_token"
+            ],
+            "requestedScopes": [
+              "channels:history",
+              "chat:write",
+              "reactions:write",
+              "users:read"
+            ],
+            "scopeSeparator": "comma",
+            "grantedScopeLocation": "provider-specific response field"
+          }
         },
         {
           "name": "slack.admin_token",
           "subject": "user",
           "scheme": "bearer",
           "entry": "connect_session",
-          "description": "Enterprise organization user OAuth token obtained through an org-wide Admin/Owner installation with reviewed admin scopes"
+          "description": "Enterprise organization user OAuth token obtained through an org-wide Admin/Owner installation with reviewed admin scopes",
+          "oauth2": null
         },
         {
           "name": "slack.app_token",
           "subject": "app",
           "scheme": "bearer",
           "entry": "connect_session",
-          "description": "Slack app-level token used only to open Socket Mode with connections:write"
+          "description": "Slack app-level token used only to open Socket Mode with connections:write",
+          "oauth2": null
         },
         {
           "name": "slack.signing_secret",
           "subject": "app",
           "scheme": "signing",
           "entry": "connect_session",
-          "description": "Slack app signing secret used only to verify inbound Events API requests"
+          "description": "Slack app signing secret used only to verify inbound Events API requests",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -47956,6 +48913,21 @@
               "scopes": [
                 {
                   "credential": "slack.bot_token",
+                  "alternatives": [
+                    [
+                      "chat:write"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "slack.user_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "slack.user_token",
                   "alternatives": [
                     [
                       "chat:write"
@@ -48017,6 +48989,21 @@
               "scopes": [
                 {
                   "credential": "slack.bot_token",
+                  "alternatives": [
+                    [
+                      "channels:history"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "slack.user_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "slack.user_token",
                   "alternatives": [
                     [
                       "channels:history"
@@ -48097,6 +49084,21 @@
                   ]
                 }
               ]
+            },
+            {
+              "credentials": [
+                "slack.user_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "slack.user_token",
+                  "alternatives": [
+                    [
+                      "users:read"
+                    ]
+                  ]
+                }
+              ]
             }
           ],
           "inputs": [
@@ -48145,6 +49147,21 @@
               "scopes": [
                 {
                   "credential": "slack.bot_token",
+                  "alternatives": [
+                    [
+                      "reactions:write"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "credentials": [
+                "slack.user_token"
+              ],
+              "scopes": [
+                {
+                  "credential": "slack.user_token",
                   "alternatives": [
                     [
                       "reactions:write"
@@ -48590,7 +49607,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Statuspage API key, sent as the Authorization header after the literal scheme word `OAuth ` — a static key from the account's own API settings, not an OAuth2 access token"
+          "description": "Statuspage API key, sent as the Authorization header after the literal scheme word `OAuth ` — a static key from the account's own API settings, not an OAuth2 access token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -49040,14 +50058,16 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Stripe secret key sent as a bearer. A live key moves real money; a test key does not. A restricted key limited to Charges, PaymentIntents, Refunds, Customers and Balance is sufficient"
+          "description": "Stripe secret key sent as a bearer. A live key moves real money; a test key does not. A restricted key limited to Charges, PaymentIntents, Refunds, Customers and Balance is sufficient",
+          "oauth2": null
         },
         {
           "name": "stripe.webhook_signing_secret",
           "subject": "unstated",
           "scheme": "signing",
           "entry": null,
-          "description": "Stripe webhook endpoint signing secret, used to verify inbound events. Never sent to Stripe"
+          "description": "Stripe webhook endpoint signing secret, used to verify inbound events. Never sent to Stripe",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -49980,7 +51000,8 @@
           "subject": "unstated",
           "scheme": "header",
           "entry": null,
-          "description": "Supabase project anon (publishable) key. Travels as the `apikey` header on every request. Requests made with it run as the project's `anon` Postgres role, so everything they return is bounded by the project's row-level-security policies — it is not the `service_role` key and confers none of that key's authority"
+          "description": "Supabase project anon (publishable) key. Travels as the `apikey` header on every request. Requests made with it run as the project's `anon` Postgres role, so everything they return is bounded by the project's row-level-security policies — it is not the `service_role` key and confers none of that key's authority",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -50237,14 +51258,16 @@
           "subject": "unstated",
           "scheme": "query",
           "entry": null,
-          "description": "Trello API key, identifying the Power-Up registration a call is made through. Travels as the `key` query parameter on every request, always together with the token; neither authenticates a call alone"
+          "description": "Trello API key, identifying the Power-Up registration a call is made through. Travels as the `key` query parameter on every request, always together with the token; neither authenticates a call alone",
+          "oauth2": null
         },
         {
           "name": "trello.token",
           "subject": "unstated",
           "scheme": "query",
           "entry": null,
-          "description": "Trello API token, granting access to one member's account. Travels as the `token` query parameter on every request, always together with the key; a token is only valid against the key it was minted for"
+          "description": "Trello API token, granting access to one member's account. Travels as the `token` query parameter on every request, always together with the key; a token is only valid against the key it was minted for",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -50805,14 +51828,16 @@
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "Twilio Account SID and Auth Token, sent as HTTP Basic credentials"
+          "description": "Twilio Account SID and Auth Token, sent as HTTP Basic credentials",
+          "oauth2": null
         },
         {
           "name": "twilio.webhook_signing_secret",
           "subject": "unstated",
           "scheme": "signing",
           "entry": null,
-          "description": "The same Auth Token as twilio.basic_auth, used here to verify X-Twilio-Signature on inbound status callbacks. Never sent to Twilio"
+          "description": "The same Auth Token as twilio.basic_auth, used here to verify X-Twilio-Signature on inbound status callbacks. Never sent to Twilio",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -51950,7 +52975,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Typeform access token sent as a bearer — a personal access token or an OAuth2 access token"
+          "description": "Typeform access token sent as a bearer — a personal access token or an OAuth2 access token",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -52367,7 +53393,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Vercel access token sent as a bearer"
+          "description": "Vercel access token sent as a bearer",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -52681,7 +53708,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Webflow API token (a Site API token or an OAuth2 access token), sent as a bearer token, scoped to read sites, collections and items, and to publish"
+          "description": "Webflow API token (a Site API token or an OAuth2 access token), sent as a bearer token, scoped to read sites, collections and items, and to publish",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -53083,14 +54111,16 @@
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "Zendesk API token; the user half is the agent email with Zendesk's /token marker"
+          "description": "Zendesk API token; the user half is the agent email with Zendesk's /token marker",
+          "oauth2": null
         },
         {
           "name": "zendesk.messaging_key",
           "subject": "unstated",
           "scheme": "basic",
           "entry": null,
-          "description": "App-scoped Zendesk Messaging API key id and secret"
+          "description": "App-scoped Zendesk Messaging API key id and secret",
+          "oauth2": null
         }
       ],
       "operations": [
@@ -54718,7 +55748,8 @@
           "subject": "unstated",
           "scheme": "bearer",
           "entry": null,
-          "description": "Zoom server-to-server OAuth access token, sent as a bearer. Minted outside flux and supplied through the environment; it expires within the hour and nothing here can refresh it"
+          "description": "Zoom server-to-server OAuth access token, sent as a bearer. Minted outside flux and supplied through the environment; it expires within the hour and nothing here can refresh it",
+          "oauth2": null
         }
       ],
       "operations": [
