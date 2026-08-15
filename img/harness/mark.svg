@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Three-strand harness mark</title>
+  <desc id="description">Three luminous strands twist through a dark rounded frame.</desc>
+  <rect x="5" y="5" width="54" height="54" rx="14" fill="#101412" stroke="#34483a" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-width="5.5">
+    <path d="M19 14c0 10 26 8 26 18S19 40 19 50" stroke="#a6f57b"/>
+    <path d="M32 14c0 8-13 10-13 18s13 10 13 18" stroke="#d9ffd0"/>
+    <path d="M45 14c0 10-13 8-13 18s13 8 13 18" stroke="#639e57"/>
+  </g>
+</svg>
