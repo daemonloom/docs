@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "release": "release-17.1",
+  "release": "release-18.1",
   "base_url": "/docs/",
-  "artifact_sha256": "0e9056b8b4f9242cf27260fc8571ae505441d0dd7e1060a7bcc56b645b235009",
+  "artifact_sha256": "56d3b18023e84ddf594d5c2fdf662ff9e2ff159843ab46f23482d854a71682e3",
   "catalog": {
     "connectors": 59,
     "operations": 843,
